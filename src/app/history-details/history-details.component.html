@@ -1,0 +1,40 @@
+<div class="section-wrapper" *ngIf="(item$ | async) as item">
+    <div class="message-section mbe-xl">
+        <ng-container *ngIf="item.word.status === 2">
+            <app-message [type]="item.word.win === 0 ? 'error':'success'" [icon]="true">
+                
+                <ng-container *ngIf="item.word.win === 0">
+                    <b>You lost!</b>
+                    <p class="txt-secondary mb-zero small">Don’t give up and try again!</p>
+                </ng-container>
+                <ng-container *ngIf="item.word.win === 1">
+                    <b>You won!</b>
+                    <p class="txt-secondary mb-zero small">Congratulations! Keep the good score!</p>
+                </ng-container>
+            </app-message>
+        </ng-container>
+    </div>
+    <div class="title">
+        <h1>Hangman</h1>
+        <p class="txt-secondary mb-zero">Guess the word before you get hanged!</p>
+    </div>
+    <div class="button-section">
+        <button class="btn secondary" (click)="goBack()"><img alt="" aria-hidden="true" src="assets/svg/icon-history.svg">Histroy</button>
+        <ng-container *ngIf="item.word.status === 2">
+            <button class="btn primary" *ngIf="(wordInProgressID$ | async) as id else newGameBtn" (click)="play(id)"><img alt="" aria-hidden="true" src="assets/svg/icon-new.svg">Continue game</button>
+        </ng-container>
+    </div>
+    <div class="main-section">
+        <div class="mbs-xl">
+            <app-word [wordList]="item.markedWord" [markedLetters]="item.markedPlayedLetters" [gameInProgress]="item.word.status === 1"></app-word>
+        </div>
+        <div  *ngIf="item.word.status === 1" class="mbs-xxl">
+            <app-letter [playedLetters]="item.word.playedLetters"></app-letter>
+            <app-keyboard [keyboard]="item.markedKeybaordLetters"></app-keyboard>
+        </div>
+    </div>
+</div>
+
+<ng-template #newGameBtn>
+    <button class="btn primary" (click)="play()"><img alt="" aria-hidden="true" src="assets/svg/icon-new.svg">New game</button>
+</ng-template>

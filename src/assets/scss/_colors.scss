@@ -1,0 +1,36 @@
+@use "./vars";
+
+.bg-primary {
+    background-color: vars.$surface-primary;
+}
+.bg-secondary {
+    background-color: vars.$surface-secondary;
+}
+.bg-tertiary {
+    background-color: vars.$surface-tertiary;
+}
+.bg-success {
+    background-color: vars.$surface-success;
+}
+.bg-error {
+    background-color: vars.$surface-error;
+}
+.bg-disabled {
+    background-color: vars.$surface-disabled;
+}
+
+.txt-primary {
+    color:  vars.$text-primary;
+}
+.txt-secondary {
+    color:  vars.$text-secondary;
+}
+.txt-error {
+    color:  vars.$text-error;
+}
+.txt-inverted {
+    color:  vars.$text-inverted;
+}
+.txt-link {
+    color:  vars.$text-hyperlink;
+}

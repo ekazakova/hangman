@@ -1,0 +1,104 @@
+//TYPOGRAPHY
+$primitive-font-size-normal: 16px;
+$primitive-font-size-small: 12px;
+$primitive-font-size-h1: 32px;
+$primitive-font-size-h4: 30px;
+
+$primitive-line-height-normal: 24px;
+$primitive-line-height-small: 16px;
+$primitive-line-height-h1: 36px;
+$primitive-line-height-h4: 38px;
+
+
+
+$font-family: var(--font-family);
+
+$font-weight-normal: var(--font-weight-normal, normal);
+$font-weight-bold: var(--font-weight-bold, 600);
+
+$font-font-size: var(--font-size, $primitive-font-size-normal);
+$font-line-height: var(--line-height, $primitive-line-height-normal);
+$font-style: var(--font-style, normal);
+//small
+$font-font-size-small: var(--font-size-small, $primitive-font-size-small);
+$font-line-height-small: var(--line-height-small, $primitive-line-height-small);
+//h1
+$font-font-size-h1: var(--font-size-h1, $primitive-font-size-h1);
+$font-line-height-h1: var(--line-height-h41, $primitive-line-height-h1);
+//h4
+$font-font-size-h4: var(--font-size-h4, $primitive-font-size-h4);
+$font-line-height-h4: var(--line-height-h4, $primitive-line-height-h4);
+
+
+//SPACING
+
+$primitive-xs: 4px;
+$primitive-s: 8px;
+$primitive-m: 16px;
+$primitive-l: 24px;
+$primitive-xl: 32px;
+$primitive-xxl: 64px;
+
+$spacing-xs: var(--primitive-xs, $primitive-xs);
+$spacing-s: var(--primitive-s, $primitive-s);
+$spacing-m: var(--primitive-m, $primitive-m);
+$spacing-l: var(--primitive-l, $primitive-l);
+$spacing-xl: var(--primitive-xl, $primitive-xl);
+$spacing-xxl: var(--primitive-xxl, $primitive-xxl);
+
+$radius-xs: var(--primitive-xs, $primitive-xs);
+$radius-s: var(--primitive-s, $primitive-s);
+
+// COLORS
+
+$primary-90-0s: rgba(8, 20, 66, 1);
+$primitive-white: rgba(252, 252, 252, 1);
+$primitive-grey-100: rgba(240, 240, 240, 1);
+$primitive-grey-200: rgba(222, 222, 222, 1);
+$primitive-grey-400: rgba(139, 150, 162, 1);
+$primitive-grey-500: rgba(90, 97, 105, 1);
+$primitive-grey-600: rgba(8, 20, 66, 1);
+$primitive-faded-blue: rgba(197, 209, 255, 1);
+$primitive-navy-blue-light: rgba(70, 109, 255, 1);
+$primitive-navy-blue-medium: rgba(27, 68, 221, 1);
+$primitive-navy-blue-dark: rgba(0, 35, 164, 1);
+$primitive-bluish-white: rgba(250, 252, 255, 1);
+$primitive-light-red: rgba(255, 207, 211, 1);
+$primitive-medium-red: rgba(255, 105, 118, 1);
+$primitive-light-green: rgba(227, 255, 237, 1);
+$primitive-medium-green: rgba(44, 214, 104, 1);
+
+$surface-primary: var(--primitive-white, $primitive-white);
+$surface-secondary: var(--primitive-faded-blue, $primitive-faded-blue);
+$surface-tertiary: var(--primitive-grey-100, $primitive-grey-100);
+$surface-success: var(--primitive-light-green, $primitive-light-green);
+$surface-error: var(--primitive-light-red, $primitive-light-red);
+$surface-disabled: var(--primitive-grey-200, $primitive-grey-200);
+$surface-visual: var(--primitive-bluish-white, $primitive-bluish-white);
+
+$text-primary: var(--primitive-grey-600, $primitive-grey-600);
+$text-secondary: var(--primitive-grey-400, $primitive-grey-400);
+$text-error: var(--primitive-medium-red, $primitive-medium-red);
+$text-inverted: var(--primitive-white, $primitive-white);
+$text-hyperlink: var(--primitive-navy-blue-medium, $primitive-navy-blue-medium);
+
+$outline-active: var(--primitive-grey-200, $primitive-grey-200);
+$outline-focused: var(--primitive-navy-blue-medium, $primitive-navy-blue-medium);
+$outline-error: var(--primitive-medium-red, $primitive-medium-red);
+$outline-disabled: var(--primitive-grey-100, $primitive-grey-100);
+
+$button-primary-active: var(--primitive-navy-blue-medium);
+$button-primary-hover: var(--primitive-navy-blue-light);
+$button-primary-clicked: var(--primitive-navy-blue-dark);
+
+$button-secondary-active: var(--primitive-grey-600);
+$button-secondary-hover: var(--primitive-grey-400);
+$button-secondary-clicked: var(--primitive-grey-500);
+
+$button-secondary-disabled: var(--primitive-grey-200);
+
+$icon-primary: var(--primitive-grey-600, $primitive-grey-600);
+$icon-secondary: var(--primitive-grey-400, $primitive-grey-400);
+$icon-error: var(--primitive-medium-red, $primitive-medium-red);
+$icon-success: var(--primitive-medium-green, $primitive-medium-green);
+$icon-inverted: var(--primitive-white, $primitive-white);

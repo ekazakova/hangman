@@ -1,0 +1,11 @@
+@use "./../../assets/scss/vars";
+
+.name-wrapper {
+    display: flex;
+    justify-content: space-between;
+    
+    gap: vars.$spacing-s;
+    > div {
+        width: 50%;
+    }
+}

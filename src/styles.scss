@@ -1,0 +1,73 @@
+@use "sass:meta";
+@use "./assets/scss/mixins/media";
+@use "./assets/scss/vars";
+
+@include meta.load-css("assets/scss/colors");
+@include meta.load-css("assets/scss/spacing");
+@include meta.load-css("assets/scss/typography");
+@include meta.load-css("assets/scss/button");
+@include meta.load-css("assets/scss/input");
+@include meta.load-css("assets/scss/table");
+@include meta.load-css("assets/scss/message");
+@include meta.load-css("assets/scss/keyboard");
+@include meta.load-css("assets/scss/accessibility");
+@include meta.load-css("assets/scss/custom-vars");
+
+html,body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body {
+    min-width: 1280px;
+}
+
+.section-wrapper {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    grid-template-rows:  auto min-content min-content;
+    grid-template-areas: 
+        "message message"
+        "title button"
+        "section section";
+    min-width: 630px;
+}
+.title {
+    grid-area: title;
+
+}
+.message-section {
+    grid-area: message;
+}
+.button-section {
+    grid-area: button;
+    align-self: center;
+    display: flex;
+    gap: vars.$spacing-s;
+}
+.main-section {
+    grid-area: section;
+
+}
+
+
+@include media.devices("mobile") {
+    body {
+        min-width: 0;
+    }
+    .section-wrapper {
+        grid-template-columns: 100%;
+        grid-template-rows:  min-content min-content min-content min-content;
+        grid-template-areas: 
+            "title"
+            "message"
+            "section"
+            "button";
+        min-width: 0;
+        gap: 10px;
+    }
+
+    .button-section {
+        flex-direction: column;
+    }
+}

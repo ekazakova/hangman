@@ -1,0 +1,51 @@
+<div class="section-wrapper">
+    <h1 class="title">Game history list</h1>
+    <div class="button-section">
+        <button class="btn primary" *ngIf="(gameInProgress$ | async) as word else newGameBtn" (click)="onDetailsSelect(word.id)"><img alt="" aria-hidden="true" src="assets/svg/icon-play.svg">Continue game</button>
+    </div>
+    <div class="main-section mbs-xl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Word to guess</th>
+                    <th>Selected letters</th>
+                    <th>Win</th>
+                    <th>Datetime</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            <tbody *ngIf="(list$ | async) as words else noData">
+                <ng-container *ngIf="words.length > 0">
+                    <tr *ngFor="let word of words">
+                        <td>{{word.word}}</td>
+                        <td>{{word.playedLetters}}</td>
+                        <td>
+                            <ng-container *ngIf="word.status === 2">
+                                <img [src]="'assets/svg/icon-'+ (word.win === 1 ? 'win': 'lost')+'.svg'" alt=""/>
+                                <span class="visually-hidden">{{word.win === 1? "Won": "Lost"}}</span>
+                            </ng-container>
+                        </td>
+                        <td>
+                            <span class="txt-white-space-nowrap">{{word.updatedAt | date:'yyyy-M-d ':'GMT+3'}}</span>
+                            <span class="txt-white-space-nowrap">{{word.updatedAt | date:'h:mm:ss':'GMT+3'}}</span>
+                        </td>
+                        <td><a class="cursor-pointer" (click)="onDetailsSelect(word.id)" title="View game details"><img src="assets/svg/icon-eye.svg" alt="" /></a></td>
+                    </tr>
+                </ng-container>
+                
+                <ng-container *ngIf="words.length === 0">
+                    <ng-container *ngTemplateOutlet="noData"></ng-container>
+                </ng-container>
+            </tbody>
+        </table>
+    </div>
+</div>
+<ng-template #newGameBtn>
+    <button class="btn primary" (click)="newGame()"><img alt="" aria-hidden="true" src="assets/svg/icon-play.svg">New game</button>
+</ng-template>
+
+<ng-template #noData>
+    <tr>
+        <td colSpan="5" class="txt-secondary txt-align-center pb-xl">No history</td>
+    </tr>  
+</ng-template>

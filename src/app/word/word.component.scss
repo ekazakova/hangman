@@ -1,0 +1,7 @@
+@use "./../../assets/scss/vars";
+
+.word-wrapper {
+    display: flex;
+    gap: vars.$spacing-s;
+  
+}

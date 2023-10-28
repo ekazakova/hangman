@@ -1,0 +1,48 @@
+@use "mixins/spacing";
+@use "./vars";
+
+body {
+    font-family: vars.$font-family;
+    font-size: vars.$font-font-size;
+    line-height: vars.$font-line-height;
+    font-weight: vars.$font-weight-normal;
+    font-style: vars.$font-style;
+}
+
+
+h1, .h1 {
+    @include spacing.clearSpacing;
+    font-size: vars.$font-font-size-h1;
+    line-height: vars.$font-line-height-h1;
+    font-weight: vars.$font-weight-bold;
+}
+// h2, .h2 {
+    
+// }
+// h3, .h3 {
+    
+// }
+h4, .h4 {
+    @include spacing.clearSpacing;
+    font-size: vars.$font-font-size-h4;
+    line-height: vars.$font-line-height-h4;
+    font-weight: vars.$font-weight-bold;
+}
+small, .small {
+    font-size: vars.$font-font-size-small;
+    line-height: vars.$font-line-height-small;
+}
+b, strong, .bold {
+    font-weight: vars.$font-weight-bold;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.txt-align-center {
+    text-align: center;
+}
+.txt-white-space-nowrap {
+    white-space: nowrap;
+}

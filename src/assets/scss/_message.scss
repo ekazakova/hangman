@@ -1,0 +1,29 @@
+@use "./../../assets/scss/vars";
+
+$icon-padding: 48px;
+.msg {
+padding: vars.$spacing-s vars.$spacing-m;
+   border-radius: vars.$radius-s; 
+   color: vars.$text-primary;
+   
+   &.icon {
+    padding-inline-start: $icon-padding;
+    background-repeat: no-repeat;
+    background-position: left center;
+   }
+   
+   &.error {
+        background-color: vars.$surface-error;
+        &.icon {
+            background-image: url("../svg/icon-lost.svg"); 
+        }
+    }
+    &.success {
+        background-color: vars.$surface-success;
+        &.icon {
+            background-image: url("../svg/icon-win.svg");
+        }
+    }
+
+
+ }

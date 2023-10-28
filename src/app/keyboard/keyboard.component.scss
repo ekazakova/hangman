@@ -1,0 +1,18 @@
+@use "./../../assets/scss/vars";
+
+.keybaord-wrapper {
+    display: flex;
+}
+.keybaord {
+    display: flex;
+    flex-direction: column;
+    gap: vars.$spacing-s;
+    
+}
+.keybaord-row {
+    display: flex;
+    gap: vars.$spacing-s;
+    justify-content: center;
+    flex-wrap:nowrap;
+}
+

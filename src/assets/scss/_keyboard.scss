@@ -1,0 +1,49 @@
+
+@use "./../../assets/scss/vars";
+
+.letter {
+  min-width: 10px;
+  height: 24px;
+  border-radius: vars.$radius-s;
+  font-weight: vars.$font-weight-bold;
+
+  padding: vars.$spacing-s vars.$spacing-m;
+
+    cursor: default;
+  
+
+  &.disabled, &[disabled] {
+    background-color: vars.$surface-disabled;  
+    color: vars.$text-secondary;
+  }
+
+  &.blank {
+    outline: 2px solid vars.$outline-focused;
+    outline-offset: -1px;
+    &.inactive {
+      outline-color: vars.$outline-disabled;  
+    }
+  }
+
+  &.keyboard {
+    background-color: vars.$surface-secondary;
+
+    &:hover {
+      background-color: vars.$button-primary-hover;
+      color: vars.$text-inverted;
+
+    }
+    &:active {
+      
+      background-color: vars.$button-primary-clicked;
+      color: vars.$text-inverted;
+
+    }
+    &.disabled,&[disabled] {
+      background-color: vars.$surface-disabled;
+      color: vars.$text-secondary;
+      pointer-events: none;
+    }
+  }
+}
+  

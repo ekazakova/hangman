@@ -1,0 +1,7 @@
+@use "./../../assets/scss/vars";
+
+.input-wapper {
+    display: flex;
+    gap: vars.$spacing-s;
+    width: 238px;
+}

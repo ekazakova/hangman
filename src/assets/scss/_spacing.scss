@@ -1,0 +1,27 @@
+@use "mixins/spacing";
+@use "./vars";
+
+$spacing-list: (
+    zero: 0, 
+    xs:  vars.$spacing-xs, 
+    s:   vars.$spacing-s,   
+    m:   vars.$spacing-m,   
+    l:   vars.$spacing-l,   
+    xl:  vars.$spacing-xl,  
+    xxl: vars.$spacing-xxl
+);
+
+@include spacing.generate-utility-spacing-class("margin-block-start", "mbs", $spacing-list);
+@include spacing.generate-utility-spacing-class("margin-block-end", "mbe", $spacing-list);
+@include spacing.generate-utility-spacing-class("margin-block", "mb", $spacing-list);
+@include spacing.generate-utility-spacing-class("margin-inline-start", "mis", $spacing-list);
+@include spacing.generate-utility-spacing-class("margin-inline-end", "mie", $spacing-list);
+@include spacing.generate-utility-spacing-class("margin-inline", "mi", $spacing-list);
+
+@include spacing.generate-utility-spacing-class("padding-block-start", "pbs", $spacing-list);
+@include spacing.generate-utility-spacing-class("padding-block-end", "pbe", $spacing-list);
+@include spacing.generate-utility-spacing-class("padding-block", "pb", $spacing-list);
+@include spacing.generate-utility-spacing-class("padding-inline-start", "pis", $spacing-list);
+@include spacing.generate-utility-spacing-class("padding-inline-end", "pie", $spacing-list);
+@include spacing.generate-utility-spacing-class("padding-inline", "pi", $spacing-list);
+

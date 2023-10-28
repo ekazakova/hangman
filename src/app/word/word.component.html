@@ -1,0 +1,10 @@
+<div class="word-wrapper">
+    <span class="letter" [ngClass]="{'disabled': w['included'], 'blank': !w['included'], 'inactive': !(w['included'] || gameInProgress)}" *ngFor="let w of wordList">{{w['included'] ? (w["letter"] | uppercase) : ""}}</span>
+</div>
+<div class="mbs-s">
+    <span class="txt-secondary">Selected: </span>
+    <span *ngFor="let l of markedLetters; let last = last" class="pi-xs">
+        <span [class.txt-error]="!l['included']">{{l["letter"] | uppercase}}</span>
+        <span *ngIf="!last">,</span>
+    </span>
+</div>

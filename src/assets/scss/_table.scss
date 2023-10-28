@@ -1,0 +1,35 @@
+@use "./../../assets/scss/vars";
+
+table {
+    width: 100%;
+    border: 0;
+    border-spacing: 0;
+    
+    font-weight: vars.$font-weight-bold;
+}
+th,td {
+    padding: vars.$spacing-s vars.$spacing-m;
+}
+th {
+    background-color: var(--primitive-faded-blue);
+    text-align: center;
+    white-space: nowrap;
+    &:first-child {
+        border-top-left-radius: vars.$radius-s;
+
+    }
+    &:last-child {
+        border-top-right-radius: vars.$radius-s;
+
+    }
+}
+td {
+    text-align: left; 
+    color: vars.$text-secondary;
+    &:nth-child(even) {
+        background-color: vars.$surface-tertiary;
+
+    }
+  }
+  
+  

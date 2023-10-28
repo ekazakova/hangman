@@ -1,0 +1,13 @@
+<svg viewBox="0 0 287 434" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="hangman" viewBox="0 0 287 434">
+        <path class="el1" d="M3 431V3" stroke-width="6" stroke-linecap="round"/>
+        <path class="el2" d="M2.99999 3.5L233 3.5" stroke="#1B44DD" stroke-width="6" stroke-linecap="round"/>
+        <path class="el3" d="M233 3.5L233 75.5" stroke="#1B44DD" stroke-width="6" stroke-linecap="round"/>
+        <path class="el4" d="M233 171.5L233 315.5" stroke="#1B44DD" stroke-width="6" stroke-linecap="round"/>
+        <path class="el5" d="M182 251.412L232.912 200.5" stroke="#1B44DD" stroke-width="6" stroke-linecap="round"/>
+        <path class="el6" d="M283.912 251.412L233 200.5" stroke="#1B44DD" stroke-width="6" stroke-linecap="round"/>
+        <path class="el7" d="M260.362 391.175L233 316" stroke="#1B44DD" stroke-width="6" stroke-linecap="round"/>
+        <path class="el8" d="M206 391.175L233.361 316" stroke="#1B44DD" stroke-width="6" stroke-linecap="round"/>
+        <circle class="el9" cx="233" cy="123.5" r="45" stroke="#1B44DD" fill="#FFFFFF" stroke-width="6"/>
+    </symbol>
+</svg>

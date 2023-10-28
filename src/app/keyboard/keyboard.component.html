@@ -1,0 +1,9 @@
+<div class="keybaord-wrapper">
+    <div (click)="processCharFromKeyboard($event)" class="keybaord">
+        <div *ngFor="let row of keyboard" class="keybaord-row">
+            <a *ngFor="let k of row" class="letter keyboard" [class.disabled]="k['included']">
+                {{k["letter"] | uppercase}}
+            </a>
+        </div>
+    </div>
+</div>

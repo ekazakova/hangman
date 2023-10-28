@@ -1,0 +1,47 @@
+@use "./vars";
+
+:root {
+    --font-family: "Open Sans", Helvetica;
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
+    --font-size: #{vars.$primitive-font-size-normal};
+    --line-height: #{vars.$primitive-line-height-normal};
+    --font-style: normal;
+    //small
+    --font-size-small: #{vars.$primitive-font-size-small};
+    --line-height-small: #{vars.$primitive-line-height-small};
+    //h1   
+    --font-size-h1: #{vars.$primitive-font-size-h1};
+    --line-height-h1: #{vars.$primitive-line-height-h1};
+    //h4    
+    --font-size-h4: #{vars.$primitive-font-size-h4};
+    --line-height-h4: #{vars.$primitive-line-height-h4};
+}
+
+:root {
+    --primitive-xs: #{vars.$primitive-xs};
+    --primitive-s: #{vars.$primitive-s};
+    --primitive-m: #{vars.$primitive-m};
+    --primitive-l: #{vars.$primitive-l};
+    --primitive-xl: #{vars.$primitive-xl};
+    --primitive-xxl: #{vars.$primitive-xxl};
+}
+
+:root {    
+    --primary-90-0s: #{vars.$primary-90-0s};
+    --primitive-white: #{vars.$primitive-white};
+    --primitive-grey-100: #{vars.$primitive-grey-100};
+    --primitive-grey-200: #{vars.$primitive-grey-200};
+    --primitive-grey-400: #{vars.$primitive-grey-400};
+    --primitive-grey-500: #{vars.$primitive-grey-500};
+    --primitive-grey-600: #{vars.$primitive-grey-600};
+    --primitive-faded-blue: #{vars.$primitive-faded-blue};
+    --primitive-navy-blue-light: #{vars.$primitive-navy-blue-light};
+    --primitive-navy-blue-medium: #{vars.$primitive-navy-blue-medium};
+    --primitive-navy-blue-dark: #{vars.$primitive-navy-blue-dark};
+    --primitive-bluish-white: #{vars.$primitive-bluish-white};
+    --primitive-light-red: #{vars.$primitive-light-red};
+    --primitive-medium-red: #{vars.$primitive-medium-red};
+    --primitive-light-green: #{vars.$primitive-light-green};
+    --primitive-medium-green: #{vars.$primitive-medium-green};    
+  }

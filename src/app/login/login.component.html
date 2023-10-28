@@ -1,0 +1,37 @@
+<h1 class="mbe-zero">Welcome!</h1>
+<p class="mbs-zero mbe-xl txt-secondary">Please, log in with your credentials</p>
+<div *ngIf="errorMessage" class="mbe-xl">
+  <app-message type="error">{{errorMessage}}</app-message>
+</div>
+<form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+     <div class="mbe-m">
+        <label class="label" for="email">E-Mail</label>
+        <input
+          type="email"
+          id="email"
+          class="input"
+          ngModel
+          name="email"
+          value="gdj@weply.chat"
+          required
+          email
+          placeholder="sample@email.com"
+        />
+      </div>
+      <div class="mbe-l">
+        <label class="label" for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          ngModel
+          name="password"
+          value="pass123"
+          required
+          minlength="7"
+          class="input"
+          placeholder="**********"
+        />
+      </div>
+      <button class="btn primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+      <p class="small txt-secondary">You don’t have an account yet? Create one <a class="txt-link cursor-pointer" (click)="goToRegister()">here</a></p>
+</form>

@@ -1,0 +1,82 @@
+@use "./../assets/scss/mixins/media";
+
+@use "./../assets/scss/vars";
+
+
+$main-margin-block: 80px;
+$main-margin-inline: 164px;
+$main-min-width: 360px;
+
+$mobile-margin-block: 20px;
+$mobile-margin-inline: 20px;
+$mobile-min-width: 320px;
+
+
+
+.wrapper {
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-template-rows:  180px auto;
+    grid-template-areas: 
+        "logo visual"
+        "main visual";
+    min-height: 100vh;
+}
+
+
+.logo {
+    grid-area: logo;
+    margin-inline: $main-margin-inline;
+    margin-block: $main-margin-block vars.$spacing-xl;
+    min-width: $main-min-width;
+
+    font-size: vars.$font-font-size-h4;
+    line-height: vars.$font-line-height-h4;
+    font-weight: vars.$font-weight-bold;
+
+    white-space: nowrap;
+    color: #081442;
+}
+.visual {
+    grid-area: visual;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    // min-width: 800px;
+    
+  
+}
+.main {
+    grid-area: main;
+    margin-inline: $main-margin-inline;
+    margin-bottom: $main-margin-block;
+    min-width: $main-min-width;
+}
+
+@include media.devices("mobile") {
+    .wrapper {
+        grid-template-columns: 100%;
+        grid-template-rows:  min-content min-content min-content;
+        grid-template-areas: 
+            "logo"
+            "visual"
+            "main";
+    }
+
+    .logo {
+        margin-inline: $mobile-margin-inline;
+        margin-block: $mobile-margin-block vars.$spacing-xl;
+        min-width: $mobile-min-width;
+    }
+    .visual {
+        height: auto;
+        min-width: $mobile-min-width;
+        position: static;
+      
+    }
+    .main {
+        margin-inline: $mobile-margin-inline;
+        margin-bottom: $mobile-margin-block;
+        min-width: $mobile-min-width;
+    }
+}

@@ -1,0 +1,95 @@
+@use "./../../assets/scss/mixins/media";
+@use "./../../assets/scss/vars";
+
+$stroke-color: #1B44DD;
+:host {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url(./../../assets/svg/bg-top.svg), url(./../../assets/svg/bg-bottom.svg);
+    background-position: top right, bottom left;
+    background-repeat: no-repeat, no-repeat;
+    background-color: vars.$surface-visual;
+}
+svg {
+    max-width: 800px;
+    height: 100vh;
+
+}
+.hangman {
+    display: flex;
+    justify-content: center;
+}
+.hangman svg {
+    max-width: 287px;
+}
+.el1, .el2, .el3, .el4, .el5, .el6, .el7, .el8, .el9 {
+    stroke: transparent;
+}
+.attempt-1 {
+    .el1 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-2 {
+    .el1, .el2 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-3 {
+    .el1, .el2, .el3 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-4 {
+    .el1, .el2, .el3, .el4 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-5 {
+    .el1, .el2, .el3, .el4, .el5 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-6 {
+    .el1, .el2, .el3, .el4, .el5, .el6 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-7 {
+    .el1, .el2, .el3, .el4, .el5, .el6, .el7 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-8 {
+    .el1, .el2, .el3, .el4, .el5, .el6, .el7, .el8 {
+        stroke: $stroke-color;
+    }
+}
+.attempt-9 {
+    .el1, .el2, .el3, .el4, .el5, .el6, .el7, .el8, .el9 {
+        stroke: $stroke-color;
+    }
+}
+
+@include media.devices("mobile") {
+    :host {
+        height: auto;
+        background-image: none;
+        background-color: vars.$surface-primary;
+        position: static;
+    }
+    svg {
+        // min-width: 933px;
+        max-width:none;
+        width: 100%;
+        height: 300px;
+    }
+    .login, .register {
+        display: none;
+    }
+}

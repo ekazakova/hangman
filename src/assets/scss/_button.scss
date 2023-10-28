@@ -1,0 +1,70 @@
+@use "./../../assets/scss/vars";
+@use "./../../assets/scss/mixins/media";
+
+.btn {
+
+    font-family: vars.$font-family;
+    font-weight: vars.$font-weight-bold;
+    font-size: vars.$font-font-size;
+    line-height: vars.$font-line-height;
+    white-space: nowrap;
+    
+    
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: vars.$spacing-s;
+    padding: vars.$spacing-s vars.$spacing-m;
+
+    color: vars.$text-inverted;
+    border-radius: vars.$radius-s;
+    border: 0;
+
+    &[disabled] {
+        background-color: vars.$surface-disabled;
+        color: vars.$text-secondary;
+    }
+
+    &.primary:not([disabled]) {
+        background-color: vars.$button-primary-active;
+        &:hover {
+            background-color: vars.$button-primary-hover;
+        }
+        &:active {        
+            background-color: vars.$button-primary-clicked
+        }
+    }
+
+    &.secondary:not([disabled]) {
+        background-color: vars.$button-secondary-active;
+        &:hover {
+            background-color: vars.$button-secondary-hover;
+        }
+        &:active {        
+            background-color: vars.$button-secondary-clicked;
+        }
+    }
+
+    &.icon {
+        padding-inline-start: vars.$spacing-xl;
+        background-position: 4px 50%;
+        background-repeat: no-repeat;
+    }
+    &.play {
+        background-image: url(./../svg/icon-play.svg);
+    }
+    &.new-game {
+        background-image: url(./../svg/icon-new.svg);
+    }
+    &.history {
+        background-image: url(./../svg/icon-history.svg);
+    }
+}
+
+
+
+@include media.devices("mobile") {
+    .btn {
+        width: 100%;
+    }
+}

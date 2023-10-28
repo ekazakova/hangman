@@ -1,0 +1,23 @@
+$desktop-min-width: 1024;
+$tablet-min-width: 768;
+
+@mixin devices ($breakpoint) { //the name of the mixin is devices
+
+  @if $breakpoint == desktop {    
+    @media screen and (min-width: #{$desktop-min-width * 1px}) {
+    @content;
+    }
+}
+
+  @if $breakpoint == tablet {    
+        @media screen and (max-width: #{($desktop-min-width - 1) * 1px}) and (min-width: #{$tablet-min-width * 1px}) {
+        @content;
+        }
+    }
+ 
+  @if $breakpoint == mobile {
+    @media screen and (max-width: #{($tablet-min-width - 1) * 1px}) {
+      @content;
+    }
+  }
+}

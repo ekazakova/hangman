@@ -1,0 +1,66 @@
+@use "./../../assets/scss/mixins/media";
+
+@use "./../../assets/scss/vars";
+
+$form-width: 360;
+
+$input-init-width: 100%;
+$input-init-height: 40;
+$input-block-spacing: 8;
+$input-inline-spacing: 16;
+$input-border-width: 1;
+
+$input-width-padding: (2 * ($input-inline-spacing + $input-border-width)) * 1px;
+$input-height: $input-init-height - 2*($input-block-spacing + $input-border-width); 
+
+.form {
+    width: $form-width*1px;
+}
+.input {
+    height: $input-height*1px;
+    // width: $input-height*1px;
+    width: calc(100% - $input-width-padding);
+    padding: vars.$spacing-s vars.$spacing-m;
+
+    background-color: vars.$surface-primary;
+    border: 1px vars.$outline-active solid;
+    border-radius: vars.$radius-s;
+
+    font-family: vars.$font-family;
+    font-weight: vars.$font-weight-bold;
+    color: vars.$text-primary;
+    font-size: vars.$font-font-size;
+    letter-spacing: 0;
+    line-height: vars.$font-line-height;
+    font-style: vars.$font-style;
+
+    &[disabled] {
+        background-color: vars.$surface-disabled;
+        border-color: vars.$outline-active;
+    }
+    &:focus {
+        outline: 2px solid vars.$outline-focused;
+        outline-offset: -1px;
+    }
+    &.invalid {
+        
+        // width: 330px;
+        // padding-right: 30px;
+        background: url("../svg/input-error.svg") calc(100% - 10px) 50% no-repeat;
+        border-color: vars.$outline-error;
+
+        
+    }
+}
+  
+.label {
+  display: block;
+  margin-block-end: vars.$spacing-xs;
+  font-weight: vars.$font-weight-bold;
+}
+
+@include media.devices("mobile") {
+    .form {
+        width: auto;
+    }
+}

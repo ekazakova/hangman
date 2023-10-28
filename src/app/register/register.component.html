@@ -1,0 +1,91 @@
+<h1 class="mbe-zero">Nice to see you!</h1>
+<p class="mbs-zero mbe-xl txt-secondary">Creating an account takes only 2mins!</p>
+<div *ngIf="errorMessage" class="mbe-xl">
+  <app-message type="error">{{errorMessage}}</app-message>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+    <div class="mbe-xl">
+        <label class="label" for="firstName">Name</label>
+        <div class="name-wrapper">
+        <div>
+          <input
+          type="text"
+          formControlName="firstName"
+          id="firstName"
+          class="input"
+          placeholder="Regina"
+          [attr.aria-describedby]="isSubmitted && form.get('firstName').errors?.['required'] ? 'firstNameError': null"
+          [class.invalid]="isSubmitted && form.get('firstName').errors?.['required']"
+        />
+        <!-- [attr.aria-describedby]="{{firstNameError?.id}}" -->
+        <div *ngIf="isSubmitted && form.get('firstName').errors?.['required']" id="firstNameError"  class="mbs-xs txt-error">
+          First name is required
+        </div>
+      </div>
+      <div>
+        <input
+          type="text"
+          id="lastName"
+          formControlName="lastName"
+          class="input"
+          placeholder="Falange"
+          [attr.aria-describedby]="isSubmitted && form.get('lastName').errors?.['required'] ? 'lastNameError': null"
+          [class.invalid]="isSubmitted && form.get('lastName').errors?.['required']"
+        />
+        <div *ngIf="isSubmitted && form.get('lastName').errors?.['required']" id="lastNameError" class="mbs-xs txt-error">
+          Last name is required
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="mbe-xl">
+        <label class="label" for="email">E-Mail</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          class="input"
+          placeholder="sample@email.com"
+          [attr.aria-describedby]="isSubmitted && (form.get('email').errors?.['required'] || isSubmitted && form.get('email').errors?.['email']) ? 'emailError': null"
+          [class.invalid]="isSubmitted && (form.get('email').errors?.['required'] || isSubmitted && form.get('email').errors?.['email'])"
+        />
+        <div class="mbs-xs txt-error" id="emailError" *ngIf="isSubmitted && (form.get('email').errors?.['required'] || form.get('email').errors?.['email'])">
+          Invalid email adress
+      </div>
+      </div>
+    <div class="mbe-m">
+        <label class="label" for="password">Create password</label>
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          class="input"
+          placeholder="************"
+          [attr.aria-describedby]="isSubmitted && (form.get('password').errors?.['required'] || form.get('password').errors?.['minlength']) ? 'passwordError': null"          
+          [class.invalid]="isSubmitted && (form.get('password').errors?.['required'] || form.get('password').errors?.['minlength'])"
+        />
+        <div id="passwordError" class="mbs-xs txt-error" *ngIf="isSubmitted && (form.get('password').errors?.['required'] || form.get('password').errors?.['minlength'])">
+          <ng-container *ngIf="form.get('password').errors?.['required']">Password is required </ng-container>
+          <ng-container *ngIf="form.get('password').errors?.['minlength']">Password should be at least 7 characters</ng-container>
+      </div>
+      </div>
+      <div class="mbe-l">
+        <label class="label" for="passwordConfirmation">Confirm password</label>
+        <input
+          type="password"
+          id="passwordConfirmation"          
+          formControlName="passwordConfirmation"
+          class="input"
+          placeholder="************"
+          [attr.aria-describedby]="isSubmitted && (form.errors?.['passwordsDontMatch'] || form.get('passwordConfirmation').errors?.['required'] || form.get('passwordConfirmation').errors?.['minlength']) ? 'passwordConfirmationError': null"          
+          [class.invalid]="isSubmitted && (form.errors?.['passwordsDontMatch'] || form.get('passwordConfirmation').errors?.['required'] || form.get('passwordConfirmation').errors?.['minlength'])"
+        />
+        <div id="passwordConfirmationError" class="mbs-xs txt-error" *ngIf="isSubmitted && (form.errors?.['passwordsDontMatch'] || form.get('passwordConfirmation').errors?.['required'] || form.get('passwordConfirmation').errors?.['minlength'])">
+          <ng-container *ngIf="form.get('passwordConfirmation').errors?.['required']">Password is required </ng-container>
+          <ng-container *ngIf="form.get('passwordConfirmation').errors?.['minlength']">Password should be at least 7 characters</ng-container>
+          <div *ngIf="form.errors?.['passwordsDontMatch']">Passwords don't match</div>
+      </div>
+      </div>
+      <button class="btn primary" type="submit">Register</button>
+      <p class="small txt-secondary">You already have an account? Log in <a class="txt-link cursor-pointer" (click)="goToLogin()">here</a></p>
+</form>

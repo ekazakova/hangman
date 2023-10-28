@@ -1,0 +1,16 @@
+<div class="mbe-l">
+    <div class="input-wapper">
+        <input
+        #letterInput
+        [(ngModel)]="char"
+        type="text"
+        id="letter"
+        maxlength="1"
+        class="input"
+        placeholder="Enter a letter ..."
+        (keyup)="checkInput(letterInput)"
+        />
+        <button class="btn primary" [disabled]="this.isInputInvalid()" (click)="processCharFromInput(letterInput.value)">Submit</button>
+    </div>
+    <div *ngIf="errorMessage" class="txt-error">{{errorMessage}}</div>
+</div>
