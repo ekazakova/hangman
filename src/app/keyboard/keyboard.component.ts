@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Observable, Subscription, fromEvent } from 'rxjs';
-import { GameHistoryService, KEYS2 } from '../services/history.service';
+import { GameService, KEYS2 } from '../services/game.service';
 
 // const KEYS = [
 //   ["q","w","e","r","t","y","u","i","o","p"],
@@ -16,7 +16,7 @@ export class KeyboardComponent {
   @Input() keyboard = KEYS2;
   keyPressSubscription: Subscription;
 
-  constructor(private gameHistoryService: GameHistoryService) {}
+  constructor(private gameService: GameService) {}
 
   ngOnInit() {
       // this.keys = [...KEYS];
@@ -32,7 +32,7 @@ export class KeyboardComponent {
   }
 
   checkLetter(c: string) {
-    this.gameHistoryService.checkLetter(c)
+    this.gameService.checkLetter(c)
   }
 
   processCharFromKeyboard(event) {

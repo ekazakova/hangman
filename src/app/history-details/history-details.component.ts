@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GameHistoryService } from '../services/history.service';
+import { GameService } from '../services/game.service';
 import { Observable, ReplaySubject, combineLatest, map, merge, shareReplay, startWith, tap } from 'rxjs';
 import { Word, WordData } from '../model/word.model';
 
@@ -11,18 +11,18 @@ import { Word, WordData } from '../model/word.model';
 })
 export class HistoryDetailsComponent {
   item$: Observable<WordData>;
-  wordInProgressID$: Observable<any> = this.gameHistoryService.wordInProgressID$;
+  wordInProgressID$: Observable<any> = this.gameService.wordInProgressID$;
 
-  constructor(private route: ActivatedRoute, private gameHistoryService: GameHistoryService, private router: Router) {}
+  constructor(private route: ActivatedRoute, private gameService: GameService, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(data => {
       console.log(data)
       const id = +data["id"];
       if(id) {
-        this.gameHistoryService.selectedHistoryItemChange(id)
+        this.gameService.selectedHistoryItemChange(id)
       }
-      this.item$ = this.gameHistoryService.wordDetails$.pipe(
+      this.item$ = this.gameService.wordDetails$.pipe(
         tap(
         d=>{console.log("details:",d)}
       ));
@@ -30,7 +30,7 @@ export class HistoryDetailsComponent {
   }
 
   ngOnDestroy() {
-    this.gameHistoryService.selectedHistoryItemChange(null)
+    this.gameService.selectedHistoryItemChange(null)
   }
 
   goBack() {
@@ -38,7 +38,7 @@ export class HistoryDetailsComponent {
   }
   play(id = -1) {
     if(id === -1) {
-    this.gameHistoryService.start().subscribe(data => {
+    this.gameService.start().subscribe(data => {
       console.log(data)
       this.onDetailsSelect(data.id)
     });
@@ -51,6 +51,6 @@ export class HistoryDetailsComponent {
 
   onDetailsSelect(id: number) {
     this.router.navigate(["/game", id])
-    this.gameHistoryService.selectedHistoryItemChange(id)
+    this.gameService.selectedHistoryItemChange(id)
   }
 }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GameHistoryService } from '../services/history.service';
+import { GameService } from '../services/game.service';
 
 const errors = {
   deault: "Something wrong with your input! Try something else",
@@ -16,23 +16,23 @@ export class LetterComponent {
   char: string = "";
   errorMessage: string;
   
-  constructor(private gameHistoryService: GameHistoryService) {}
+  constructor(private gameService: GameService) {}
   
   processCharFromInput(c: string) {
-    if(!this.gameHistoryService.isCharacterALetter(this.char) || this.char.length !== 1) 
+    if(!this.gameService.isCharacterALetter(this.char) || this.char.length !== 1) 
       return;
-    this.gameHistoryService.checkLetter(this.char);
+    this.gameService.checkLetter(this.char);
     this.char = ""
   }
 
   isInputInvalid() {
-    return !this.gameHistoryService.isCharacterALetter(this.char) || this._isAlreadyPlayed(this.char) || this.char.length > 1;
+    return !this.gameService.isCharacterALetter(this.char) || this._isAlreadyPlayed(this.char) || this.char.length > 1;
   }
 
   checkInput(input) {
     if(this.isInputInvalid()) {
       this._showErrorMessage(input,"default")
-      if(!this.gameHistoryService.isCharacterALetter(this.char)) {
+      if(!this.gameService.isCharacterALetter(this.char)) {
         this._showErrorMessage(input,"notALetter")
       } else if(this._isAlreadyPlayed(this.char)) {
         this._showErrorMessage(input,"alreadyPlayed")

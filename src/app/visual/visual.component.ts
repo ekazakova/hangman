@@ -1,7 +1,7 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { Observable, combineLatest, filter, map, tap } from 'rxjs';
-import { GameHistoryService } from '../services/history.service';
+import { GameService } from '../services/game.service';
 import { WordData } from '../model/word.model';
 
 const SVGs = {
@@ -34,7 +34,7 @@ export class VisualComponent {
   
   attemps$: Observable<number>;
 
-  constructor(private router: Router, private gameHistoryService: GameHistoryService) {
+  constructor(private router: Router, private gameService: GameService) {
   
   }
   ngOnInit(){
@@ -45,18 +45,14 @@ export class VisualComponent {
       console.log("visual",data['url']);
       this.getSvgTemplate(data["url"]);
     })
-    this.attemps$ = this.gameHistoryService.wordDetails$.pipe(
+    this.attemps$ = this.gameService.wordDetails$.pipe(
       tap(d=>console.log("VISUALLLLL",d)),
       map(w=>{
         if(!w)
           return 9;
-        return this.gameHistoryService.getAttemps(w.word.word,w.word.playedLetters)}),
+        return this.gameService.getAttemps(w.word.word,w.word.playedLetters)}),
       tap(d=>console.log("VISUALLLLL",d))
     );
-    // .changes.subscribe(data=>{
-    //   console.log("visual",data);
-      
-    // })
     
   }
 
